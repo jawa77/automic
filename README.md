@@ -1,6 +1,6 @@
 # Subdomain Enumeration and Vulnerability Checker
 
-This automic tool automates subdomain enumeration and vulnerability checks using various tools like Knockpy, Subfinder, Assetfinder, Subzy, and Httpx.
+This automic tool automates subdomain enumeration and vulnerability checks using various tools like Knockpy, Subfinder, Assetfinder, Subzy, katana and Httpx.
 
 ## Features
 
@@ -8,6 +8,7 @@ This automic tool automates subdomain enumeration and vulnerability checks using
 - Merges results and removes duplicate entries.
 - Checks subdomain takeover vulnerabilities using Subzy.
 - Identifies alive subdomains and their status codes using Httpx.
+- crawling sites and fetch urls
 - Outputs results in organized files.
 
 ## Pre-requisites
@@ -20,6 +21,7 @@ Make sure the following tools are installed on your system:
 4. [Subzy](https://github.com/LukaSikic/subzy)
 5. [Httpx](https://github.com/projectdiscovery/httpx)
 6. `xterm` and `gnome-terminal` are required for terminal-based operations.
+7. [katana](https://github.com/projectdiscovery/katana/cmd/katana)
 
 ## Installation
 
@@ -54,6 +56,7 @@ The script generates the following files in the output directory:
 2. `allsubdomain.txt`: Merged list of unique subdomains.
 3. `alivesubdomain.txt`: Alive subdomains.
 4. `alivedomainsstatuscode.txt`: Alive subdomains with HTTP status codes.
+5. ` allurls.txt`: get all endurls from web
 
 ## License
 

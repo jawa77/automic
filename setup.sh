@@ -4,7 +4,7 @@
 sudo apt update && sudo apt upgrade -y
 
 # Install dependencies
-sudo apt install -y python3 python3-pip jq gnome-terminal xterm
+sudo apt install -y python3 python3-pip jq gnome-terminal xterm unzip curl
 
 # Install Knockpy
 if ! command -v knockpy &> /dev/null; then
@@ -54,6 +54,15 @@ if ! command -v httpx &> /dev/null; then
     sudo mv ~/go/bin/httpx /usr/local/bin/
 else
     echo "Httpx is already installed."
+fi
+
+# Install Katana
+if ! command -v katana &> /dev/null; then
+    echo "Installing Katana..."
+    go install github.com/projectdiscovery/katana/cmd/katana@latest
+    sudo mv ~/go/bin/katana /usr/local/bin/
+else
+    echo "Katana is already installed."
 fi
 
 # Clean up

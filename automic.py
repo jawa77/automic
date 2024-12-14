@@ -112,6 +112,21 @@ def check_alive_with_statuscode(output_dir):
         print(f"[!] Failed to launch httpx for status codes: {e}")
         sys.exit(1)
 
+
+def katana_crawler(output_dir):
+    """
+    Checks alive subdomains with status codes using httpx in a new gnome-terminal.
+    """
+    print("[*] Checking alive subdomains with status codes...")
+    katana = "katana -list alivesubdomain.txt -d 5 -ef woff,css,png,svg,jpg,woff2,jpeg,gif,svg -o allurls.txt"
+    gnome_cmd = f"gnome-terminal -- bash -c \"{katana}; exec bash\""
+    try:
+        subprocess.Popen(gnome_cmd, cwd=output_dir, shell=True)
+        print("[+] Launched katana in a new gnome-terminal.")
+    except Exception as e:
+        print(f"[!] Failed to launch katana {e}")
+        sys.exit(1)
+
 def main():
     args = parse_arguments()
     domain = args.domain
@@ -134,6 +149,8 @@ def main():
 
     # Step 5: Check alive subdomains with status codes
     check_alive_with_statuscode(output_dir)
+
+    katana_crawler(output_dir)
 
     print("\n[+] Automation completed successfully.")
 
